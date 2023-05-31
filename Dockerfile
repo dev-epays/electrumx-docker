@@ -3,9 +3,9 @@ FROM debian:stable-slim
 ENV ELECTRUMX_VERSION=1.16.0
 
 RUN useradd -m electrumx && apt-get update -y && apt-get install curl \
-    python3.9 \
-    python3.9-dev \
-    python3.9-distutils \
+    python3.10 \
+    python3.10-dev \
+    python3.10-distutils \
     python3-pip \
     librocksdb-dev \
     liblz4-dev \
@@ -25,4 +25,4 @@ USER electrumx
 COPY ./requirements.txt /usr/local/electrumx/requirements.txt
 RUN pip3 install -r /usr/local/electrumx/requirements.txt
 EXPOSE 50002
-CMD python3.9 /usr/local/electrumx/electrumx_server
+CMD python3.10 /usr/local/electrumx/electrumx_server
