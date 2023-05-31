@@ -1,11 +1,11 @@
 FROM debian:stable-slim
 
 ENV ELECTRUMX_VERSION=1.16.0
-
+RUN add-apt-repository ppa:deadsnakes/ppa 
 RUN useradd -m electrumx && apt-get update -y && apt-get install curl \
-    python3.10 \
-    python3.10-dev \
-    python3.10-distutils \
+    python3.9 \
+    python3.9-dev \
+    python3.9-distutils \
     python3-pip \
     librocksdb-dev \
     liblz4-dev \
