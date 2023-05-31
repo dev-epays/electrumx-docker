@@ -10,14 +10,11 @@ RUN useradd -m electrumx && apt-get update -y && apt-get install curl \
     libbz2-dev \
     libgflags-dev \
     libleveldb-dev -y && mkdir /usr/local/electrumx/
-ENV ELECTRUMX_URL=https://github.com/spesmilo/electrumx/archive/refs/tags/${ELECTRUMX_VERSION}.tar.gz
 
-RUN curl -SLO ${ELECTRUMX_URL} \
-  && tar --strip=1 -xzf *.tar.gz -C /usr/local/electrumx/ \
-  && rm *.tar.gz
-
+RUN git clone https://github.com/spesmilo/electrumx.git /usr/local/electrumx/
+WORKDIR /usr/local/electrumx/
+RUN git reset --hard c689a831cb4f3a8fc964424d7a77fe47df7d0377
 USER electrumx
-COPY ./requirements.txt /usr/local/electrumx/requirements.txt
 RUN pip3 install -r /usr/local/electrumx/requirements.txt
 EXPOSE 50002
 CMD python3.9 /usr/local/electrumx/electrumx_server
