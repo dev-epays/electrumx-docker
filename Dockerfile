@@ -1,13 +1,9 @@
-FROM debian:stable-slim
+FROM python:3.9.16-slim-buster
 
 ENV ELECTRUMX_VERSION=1.16.0
 RUN apt-get update -y && apt-get install software-properties-common gnupg -y
 RUN add-apt-repository ppa:deadsnakes/ppa 
 RUN useradd -m electrumx && apt-get update -y && apt-get install curl \
-    python3.9 \
-    python3.9-dev \
-    python3.9-distutils \
-    python3-pip \
     librocksdb-dev \
     liblz4-dev \
     build-essential \
