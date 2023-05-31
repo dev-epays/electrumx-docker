@@ -9,7 +9,7 @@ RUN useradd -m electrumx && apt-get update -y && apt-get install curl \
     zlib1g-dev \
     libbz2-dev \
     libgflags-dev \
-    libleveldb-dev -y && mkdir /usr/local/electrumx/
+    libleveldb-dev git -y && mkdir /usr/local/electrumx/
 
 RUN git clone https://github.com/spesmilo/electrumx.git /usr/local/electrumx/
 WORKDIR /usr/local/electrumx/
