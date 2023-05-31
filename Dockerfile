@@ -1,8 +1,6 @@
 FROM python:3.9.16-slim-buster
 
 ENV ELECTRUMX_VERSION=1.16.0
-RUN apt-get update -y && apt-get install software-properties-common gnupg -y
-RUN add-apt-repository ppa:deadsnakes/ppa 
 RUN useradd -m electrumx && apt-get update -y && apt-get install curl \
     librocksdb-dev \
     liblz4-dev \
