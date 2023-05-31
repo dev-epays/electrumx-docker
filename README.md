@@ -2,7 +2,7 @@ docker-compose.yml example
 ```
 services:
   electrum:
-    build: ./electrum
+    build: https://github.com/dev-epays/electrumx-docker
     environment:
       COIN: "Dogecoin"
       DB_DIRECTORY: "/data/"
