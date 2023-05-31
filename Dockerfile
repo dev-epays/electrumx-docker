@@ -1,7 +1,7 @@
 FROM debian:stable-slim
 
 ENV ELECTRUMX_VERSION=1.16.0
-RUN apt-get update -y && apt-get install software-properties-common
+RUN apt-get update -y && apt-get install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa 
 RUN useradd -m electrumx && apt-get update -y && apt-get install curl \
     python3.9 \
